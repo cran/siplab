@@ -22,11 +22,11 @@ A \pkg{spatstat} point pattern object (class \code{ppp}), containing the plants 
 }
   \item{maxN}{
 %%     ~~Describe \code{maxN} here~~
-Maximum number of nearest neighbors to include as potential competitors. Only one non-null maxN or maxR can be given. Default is NULL (no restriction).
+Maximum number of nearest neighbors to include as potential competitors. Default is NULL (no restriction).
 }
   \item{maxR}{
 %%     ~~Describe \code{maxR} here~~
-Maximum radius to search for potential competitors. Only one non-null maxN or maxR can be given. Default is NULL (no restriction).
+Maximum radius to search for potential competitors. Default is NULL (no restriction).
 }
   \item{select}{
 %%     ~~Describe \code{select} here~~
@@ -49,7 +49,7 @@ Parameter(s) for \code{kernel}, usually a list or vector. Default: NULL.
 %%  ~~ If necessary, more details than the description above ~~
 Traditionally, a competition index for a subject plant \eqn{i} is obtained in two stages: (1) Choose a set of competitors of \eqn{i} by some selection rule. (2) Compute a measure of the effect of each competitor \eqn{j} on plant \eqn{i}, and add over \eqn{j}. This effect of \eqn{j} on \eqn{i} is normally a function of the sizes of both plants and of the distance between them, which we call a competition kernel. The kernel may depend on other plant attributes, like species, and in some rare instances on the distance ranks or on the number of competitors. Conceptually, the first stage is not strictly necessary, it could be replaced by specifying zero kernel values (the effect of the selection is usually to truncate the kernel function beyond some distance). A separate selection rule may reduce the computational effort of searching for neighbors.
 
-Some simple selection rules can be implemented by giving a value to \code{maxN} or \code{maxR}. In any case, reasonable limits in one of these variables (they are mutually exclusive) may be advisable for reducing computation.
+Some simple selection rules can be implemented by giving a value to \code{maxN} and/or \code{maxR}. In any case, reasonable limits on these variables may be advisable for reducing computation. If both arguments \code{maxN} and  \code{maxR} are given, the neighbourhood is defined as the intersection of the neighbourhoods specified by these arguments.
 
 More complex rules can be specified by the \code{select} function, and parameters in \code{selpar}. See \code{\link{select}} for examples.
 

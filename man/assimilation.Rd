@@ -12,12 +12,12 @@ Compute Assimilation Indices
 This is the main function in \pkg{siplab} for computing assimilation indices. Optionally, it computes also a free-growing index, and/or the assimilation centroid.
 }
 \usage{
-assimilation(plants, pixsize = 0.1, resource = 1, influence = gnomon.inf,
-  infpar = list(a = 1, b = 4, smark = 1), partpar = Inf, efficiency = flat.eff,
+assimilation(plants, pixsize = 0.2, resource = 1, influence = gnomon.inf,
+  infpar = list(a = 1, b = 4, smark = 1), asym = Inf, efficiency = flat.eff,
   effpar = NULL, plot = TRUE, afree = FALSE, centroid = FALSE)
 
-assimilation.pix(plants, pixsize = 0.1, resource = 1, influence = gnomon.inf,
-  infpar = list(a = 1, b = 4, smark = 1), partpar = Inf, efficiency = flat.eff,
+assimilation.pix(plants, pixsize = 0.2, resource = 1, influence = gnomon.inf,
+  infpar = list(a = 1, b = 4, smark = 1), asym = Inf, efficiency = flat.eff,
   effpar = NULL, plot = TRUE, afree = FALSE, centroid = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
@@ -28,7 +28,7 @@ A \pkg{spatstat} point pattern object (class \code{ppp}), containing the plants 
 }
   \item{pixsize}{
 %%     ~~Describe \code{pixsize} here~~
-Resolution, approximate step size in the pixel grid. Default 0.1.
+Resolution, approximate step size in the pixel grid. Default 0.2.
 }
   \item{resource}{
 %%     ~~Describe \code{resource} here~~
@@ -42,9 +42,9 @@ User-supplied influence function for computing influence values. Must have argum
 %%     ~~Describe \code{infpar} here~~
 Parameter(s) for \code{influence}, usually a list or vector. Default: \code{list(a=1, b=4, smark=1)}. Note that \code{smark=1} indicates that the plant size variable is the first or only item in \code{marks}.
 }
-  \item{partpar}{
-%%     ~~Describe \code{partpar} here~~
-Exponent \eqn{\theta} in the partition function. Default is \code{Inf}, which produces a tesselation.
+  \item{asym}{
+%%     ~~Describe \code{asym} here~~
+Asymmetry parameter \eqn{\alpha} in the allotment function. Default is \code{Inf}, which corresponds to one-sided competition (tesselation models).
 }
   \item{efficiency}{
 %%     ~~Describe \code{efficiency} here~~
@@ -56,7 +56,7 @@ Parameter(s) for \code{efficiency}, usually a list or vector.
 }
   \item{plot}{
 %%     ~~Describe \code{plot} here~~
-If \code{TRUE}, the denominator of the partition function is graphed as a pixel image, to visualize competition pressure (default).
+If \code{TRUE}, the denominator of the allotment function is graphed as a pixel image, to visualize competition pressure (default).
 }
   \item{afree}{
 %%     ~~Describe \code{afree} here~~
@@ -71,7 +71,7 @@ If \code{TRUE}, the centroid of the plant assimilation distribution is also comp
 %%  ~~ If necessary, more details than the description above ~~
 \code{assimilation} and \code{assimilation.pix} are functionally equivalent, but the code in \code{assimilation.pix} is somewhat clearer and slower. It may be useful for documentation purposes, and as a basis for user modification.
 
-Computation starts with a resource intensity grid at a spatial resolution of \code{pixsize}, which is typically assumed to be uniform, Plants exert competitive pressure depending on size and distance, described by the \code{\link{influence}} function. The resource available at each pixel is allocated to plants according to their influence and to a partition rule parametrized by \code{partpar}. Finally, the resource uptake is weighted by the \code{\link{efficiency}} function, and is spatially integrated to obtain the plant's assimilation index.
+Computation starts with a resource intensity grid at a spatial resolution of \code{pixsize}, which is typically assumed to be uniform, Plants exert competitive pressure depending on size and distance, described by the \code{\link{influence}} function. The resource available at each pixel is allotted to plants according to their influence and to a allotment rule parametrized by \code{asym}. Finally, the resource uptake is weighted by the \code{\link{efficiency}} function, and is spatially integrated to obtain the plant's assimilation index.
 }
 \value{
 %%  ~Describe the value returned
@@ -85,7 +85,7 @@ Returns the point pattern \code{plants} with the results appended to the \code{m
 %% ~put references to the literature/web site here ~
 \url{http://forestgrowth.unbc.ca/siplab}
 
-\enc{García}{Garcia}, O. (2013) \dQuote{A generic approach to spatial individual-based modelling and simulation of plant communities}. Manuscript in review.
+\enc{García}{Garcia}, O. (2013) \dQuote{A generic approach to spatial individual-based modelling and simulation of plant communities}. Mathematical and Computational Forestry and Nat.-Res. Sci. (MCFNS) 6(1), 36-47. 2014.
 }
 \author{
 %%  ~~who you are~~

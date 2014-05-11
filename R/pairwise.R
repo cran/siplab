@@ -20,14 +20,7 @@ function(plants, maxN=NULL, maxR=NULL, select=NULL, selpar=NULL, kernel, kerpar=
     } # end of function
     # Get indices
     marks(plants) <- as.data.frame(marks(plants))
-    if(!is.null(maxR)) {
-        if(!is.null(maxN)) stop('pairwise: only one of maxN or maxR can be given')
-        marks(plants)$cindex <- applynbd(plants, cindex, R=maxR, exclude=TRUE,
-                        select=select, selpar=selpar, kernel=kernel, kerpar=kerpar)
-    } else {
-        if(is.null(maxN)) maxN <- npoints(plants)
-        marks(plants)$cindex <- applynbd(plants, cindex, N=maxN, exclude=TRUE,
-                        select=select, selpar=selpar, kernel=kernel, kerpar=kerpar)
-    }
+    marks(plants)$cindex <- applynbd(plants, cindex, N=maxN, R=maxR, exclude=TRUE,
+            select=select, selpar=selpar, kernel=kernel, kerpar=kerpar)
     return(plants)
 }

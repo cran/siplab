@@ -71,7 +71,7 @@ Vector of influence values, of length equal to the length of dx and dy.
 %% ~put references to the literature/web site here ~
 \url{http://forestgrowth.unbc.ca/siplab}
 
-\enc{García}{Garcia}, O. \dQuote{A generic approach to spatial individual-based modelling and simulation of plant communities}. Manuscript in review.
+\enc{García}{Garcia}, O. \dQuote{A generic approach to spatial individual-based modelling and simulation of plant communities}. Mathematical and Computational Forestry and Nat.-Res. Sci. (MCFNS) 6(1), 36-47. 2014.
 }
 \author{
 %%  ~~who you are~~
@@ -87,6 +87,20 @@ Oscar \enc{García}{Garcia}.
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 \code{\link{assimilation}}
 }
+
+\examples{
+# Example multi-species influence function (spruce/hardwoods)
+multi.inf <- function (dx, dy, marks, par) {
+    out <- numeric(length(dx))
+    s <- marks$SPECIES == "Spruce"
+    out[s] <- gnomon.inf(dx[s], dy[s], marks[s, ], par=list(a=par$aS,
+        b=par$bS, smark=par$smark))
+    out[!s] <- gnomon.inf(dx[!s], dy[!s], marks[!s, ], par=list(a=par$aH,
+        b=par$bH, smark=par$smark)) # Hardwoods
+    return(out)
+}
+}
+
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 %\keyword{ ~kwd1 }

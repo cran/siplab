@@ -13,8 +13,8 @@ A platform for experimenting with spatially explicit individual-based plant mode
 \tabular{ll}{
 Package: \tab siplab\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2014-01-09\cr
+Version: \tab 1.1\cr
+Date: \tab 2014-05-10\cr
 License: \tab GPL\cr
 }
 %~~ An overview of how to use the package, including the most important functions ~~
@@ -38,7 +38,7 @@ Maintainer: O. Garcia <garcia@unbc.ca>
 %~~ Literature or other references for background information ~~
 \url{http://forestgrowth.unbc.ca/siplab}
 
-\enc{García}{Garcia}, O. \dQuote{A generic approach to spatial individual-based modelling and simulation of plant communities}. Manuscript in review.
+\enc{García}{Garcia}, O. \dQuote{A generic approach to spatial individual-based modelling and simulation of plant communities}. Mathematical and Computational Forestry and Nat.-Res. Sci. (MCFNS) 6(1), 36-47. 2014. 
 }
 %~~ Optionally other standard keywords, one per line, from file KEYWORDS in the R documentation directory ~~
 %\keyword{ package }
@@ -52,10 +52,6 @@ Some \pkg{spatstat} standard data sets may also be of interest: \code{finpines},
 \examples{
 %~~ simple examples of the most important functions ~~
 a <- assimilation(finpines, influence=zoi.inf, infpar=c(k=0.2,
-       smark=1), partpar=1)
+       smark=1), asym=1)
 head(marks(a))
-}
-
-\section{Warning}{
-Limited testing so far, use with care. Please email issues to \email{garcia@unbc.ca}.
 }

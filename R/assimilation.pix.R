@@ -1,10 +1,10 @@
 assimilation.pix <-
 function(plants, # marked point pattern (class ppp)
-         pixsize=0.1, # resolution (pixel size)
+         pixsize=0.2, # resolution (pixel size)
          resource=1, # resource map
          influence=gnomon.inf, # influence function
          infpar=list(a=1, b=4, smark=1), # influence function parameter(s)
-         partpar=Inf, # partition function parameter
+         asym=Inf, # asymmetry parameter
          efficiency=flat.eff, # efficiency function
          effpar=NULL, # efficiency function parameter(s)
          plot=TRUE, # plot influences map?
@@ -24,9 +24,9 @@ function(plants, # marked point pattern (class ppp)
     denom <- as.im(0, resource)
     for(i in 1:npoints(plants)) {
         phi <- as.im(infi, resource)
-        if(is.infinite(partpar)) denom <- eval.im(pmax(denom, phi))
-        else if(partpar > 0) denom <- eval.im(denom + phi^partpar)
-        else denom <- eval.im(denom + (phi > 0))  # partpar == 0
+        if(is.infinite(asym)) denom <- eval.im(pmax(denom, phi))
+        else if(asym > 0) denom <- eval.im(denom + phi^asym)
+        else denom <- eval.im(denom + (phi > 0))  # asym == 0
     }
     if(plot) plot(denom, main=NULL)
     # Second pass, get assimilation index for each plant
@@ -34,10 +34,10 @@ function(plants, # marked point pattern (class ppp)
         marks = marks[i, ], par = effpar)
     for(i in 1:npoints(plants)) {
         phi <- as.im(infi, resource)
-        if(is.infinite(partpar)) part <- eval.im((phi >= denom) * (phi > 0))
-        else if(partpar > 0) part <- eval.im(phi^partpar / (denom + (denom == 0)))
+        if(is.infinite(asym)) part <- eval.im((phi >= denom) * (phi > 0))
+        else if(asym > 0) part <- eval.im(phi^asym / (denom + (denom == 0)))
                 # (avoid division by 0)
-        else part <- eval.im((phi > 0) / (denom + (denom == 0))) # partpar == 0
+        else part <- eval.im((phi > 0) / (denom + (denom == 0))) # asym == 0
         eff <- as.im(effi, resource)
         assim <- eval.im(eff * part * resource)
         marks$aindex[i] <- integral.im(assim)
