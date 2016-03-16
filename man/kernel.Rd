@@ -14,11 +14,14 @@ Competition Kernel Functions
 Functions representing the effect of a competitor on a subject plant, depending on distance and plant marks. For use in \code{\link{pairwise}}.
 }
 \usage{
-powers.ker(imarks, jmarks, dists, dranks, par = list(pi=1, pj=1, pr=1, smark = 1))
+powers.ker(imarks, jmarks, dists, dranks, par = list(pi=1, pj=1,
+    pr=1, smark = 1))
 
-staebler.ker(imarks, jmarks, dists, dranks, par = list(k=0.1, p=1, smark=1))
+staebler.ker(imarks, jmarks, dists, dranks, par = list(k=0.1, p=1,
+    smark=1))
 
-spurr.ker(imarks, jmarks, dists, dranks, par = list(type=1, smark=1))
+spurr.ker(imarks, jmarks, dists, dranks, par = list(type=1,
+    smark=1))
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -45,7 +48,7 @@ The values of \code{par} must be given in the argument \code{kerpar} of \code{pa
 \code{smark} in \code{par} indicates the location of the plant size variable in \code{marks}. It can be a data frame column number, or a string id like "dbh".
 
 Competition kernels seem to be limited only by the researchers imagination.
-\code{powers.ker} is a general form that includes many examples from the literature. If \eqn{S_i}{Si} is the size of the subject plant, \eqn{S_j}{Sj} the size of the competitor, and \eqn{R} is the distance between them, this kernel is \eqn{(S_j^{p_j} / S_i^{p_i}) / R^{p_r}}{(Sj^pj / Si^pi) / R^pr}. For instance, the popular Hegyi's index corresponds to \code{pi=1, pj=1, pr=1, smark="dbh"}.
+\code{powers.ker} is a general form that includes many examples from the literature. If \eqn{S_i}{Si} is the size of the subject plant, \eqn{S_j}{Sj} the size of the competitor, and \eqn{R} is the distance between them, this kernel is \eqn{(S_j^{p_j} / S_i^{p_i}) / R^{p_r}}{(Sj^pj / Si^pi) / R^pr}. For instance, the popular Hegyi's index corresponds to \code{pi=1, pj=1, pr=1}.
 This and other examples could be coded directly if computational efficiency is important.
 
 \code{staebler.ker} is the width of the overlap of zones of influence (ZOI), used by Staebler in 1951. Assumes that the ZOI radius is related to size \eqn{S} by \eqn{k S^p + c}.
@@ -65,6 +68,8 @@ Vector of length equal to the length of \code{dists}.
 \url{http://forestgrowth.unbc.ca/siplab}
 
 Burkhart, H. E. and \enc{Tomé}{Tome}, M. (2012) \emph{Modeling Forest Trees and Stands}. Springer.
+
+\enc{García}{Garcia}, O. \dQuote{Siplab, a spatial individual-based plant modelling system}. Computational Ecology and Software 4(4), 215-222. 2014.
 }
 \author{
 %%  ~~who you are~~

@@ -17,7 +17,8 @@ Compute influence values depending on distance and plant marks, for use in \code
 \usage{
 zoi.inf(dx, dy, marks, par = list(k = 0.2, smark = 1))
 
-tass.inf(dx, dy, marks, par = list(b = 3.52 * 0.975, c = 6.1, smark = 1))
+tass.inf(dx, dy, marks, par = list(b = 3.52 * 0.975, c = 6.1,
+    smark = 1))
 
 gates.inf(dx, dy, marks, par = list(a = 1, b = 4, smark = 1))
 

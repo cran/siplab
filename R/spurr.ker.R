@@ -1,6 +1,6 @@
 spurr.ker <-
 function(imarks, jmarks, dists, dranks, par = list(type=1, smark=1)) {
-# Spurr's competition kernel, from Burkhart & Tomé (2012) Sec. 9.2.2.1
+# Spurr's competition kernel, from Burkhart & Tome (2012) Sec. 9.2.2.1
     with(as.list(par),
          if(type == 1) x <- 0.5
          else if(type ==2) x <- -0.5

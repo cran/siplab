@@ -12,13 +12,15 @@ Compute Assimilation Indices
 This is the main function in \pkg{siplab} for computing assimilation indices. Optionally, it computes also a free-growing index, and/or the assimilation centroid.
 }
 \usage{
-assimilation(plants, pixsize = 0.2, resource = 1, influence = gnomon.inf,
-  infpar = list(a = 1, b = 4, smark = 1), asym = Inf, efficiency = flat.eff,
-  effpar = NULL, plot = TRUE, afree = FALSE, centroid = FALSE)
+assimilation(plants, pixsize = 0.2, resource = 1, influence =
+    gnomon.inf, infpar = list(a = 1, b = 4, smark = 1), asym = Inf,
+    efficiency = flat.eff, effpar = NULL, plot = TRUE, afree =
+    FALSE, centroid = FALSE)
 
-assimilation.pix(plants, pixsize = 0.2, resource = 1, influence = gnomon.inf,
-  infpar = list(a = 1, b = 4, smark = 1), asym = Inf, efficiency = flat.eff,
-  effpar = NULL, plot = TRUE, afree = FALSE, centroid = FALSE)
+assimilation.pix(plants, pixsize = 0.2, resource = 1, influence =
+    gnomon.inf, infpar = list(a = 1, b = 4, smark = 1), asym = Inf,
+    efficiency = flat.eff, effpar = NULL, plot = TRUE, afree =
+    FALSE, centroid = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -36,11 +38,11 @@ Either a pixel image (class \code{im}), or a function, or other object that can 
 }
   \item{influence}{
 %%     ~~Describe \code{influence} here~~
-User-supplied influence function for computing influence values. Must have arguments \code{(dx, dy, marks, par)}, where \code{dx} is a vector of points-to plant x-distances, \code{dy} is a vector of points-to plant y-distances, \code{marks} are the plant marks, and \code{par} receives the value of the \code{infpar} argument. Examples are provided in the functions \code{*.inf} (\code{\link{tass.inf}}, etc.). Default: \code{\link{gnomon.inf}}.
+Function for computing influence values. Must have arguments \code{(dx, dy, marks, par)}, where \code{dx} is a vector of points-to plant x-distances, \code{dy} is a vector of points-to plant y-distances, \code{marks} are the plant marks, and \code{par} receives the value of the \code{infpar} argument. Examples are provided in the functions \code{*.inf} (\code{\link{tass.inf}}, etc.). Default: \code{\link{gnomon.inf}}.
 }
   \item{infpar}{
 %%     ~~Describe \code{infpar} here~~
-Parameter(s) for \code{influence}, usually a list or vector. Default: \code{list(a=1, b=4, smark=1)}. Note that \code{smark=1} indicates that the plant size variable is the first or only item in \code{marks}.
+Parameter(s) for \code{influence}, a list or vector. Default: \code{list(a=1, b=4, smark=1)}. Note that \code{smark=1} indicates that the plant size variable is the first or only item in \code{marks}.
 }
   \item{asym}{
 %%     ~~Describe \code{asym} here~~
@@ -48,7 +50,7 @@ Asymmetry parameter \eqn{\alpha} in the allotment function. Default is \code{Inf
 }
   \item{efficiency}{
 %%     ~~Describe \code{efficiency} here~~
-User-supplied efficiency function for weighting the point resource uptake. Must have arguments \code{(dx, dy, marks, par)}, where \code{dx} is a vector of points-to plant x-distances, \code{dy} is a vector of points-to plant y-distances, \code{marks} are the plant marks, and \code{par} receives the value of the \code{effpar} argument. Examples are provided in the functions \code{*.eff} (\code{\link{tass.eff}}, etc.). The default is \code{\link{flat.eff}}, no weighting.
+Efficiency function for weighting the point-wise resource uptake. Must have arguments \code{(dx, dy, marks, par)}, where \code{dx} is a vector of points-to plant x-distances, \code{dy} is a vector of points-to plant y-distances, \code{marks} are the plant marks, and \code{par} receives the value of the \code{effpar} argument. Examples are provided in the functions \code{*.eff} (\code{\link{tass.eff}}, etc.). The default is \code{\link{flat.eff}}, no weighting.
 }
   \item{effpar}{
 %%     ~~Describe \code{effpar} here~~
@@ -71,7 +73,7 @@ If \code{TRUE}, the centroid of the plant assimilation distribution is also comp
 %%  ~~ If necessary, more details than the description above ~~
 \code{assimilation} and \code{assimilation.pix} are functionally equivalent, but the code in \code{assimilation.pix} is somewhat clearer and slower. It may be useful for documentation purposes, and as a basis for user modification.
 
-Computation starts with a resource intensity grid at a spatial resolution of \code{pixsize}, which is typically assumed to be uniform, Plants exert competitive pressure depending on size and distance, described by the \code{\link{influence}} function. The resource available at each pixel is allotted to plants according to their influence and to a allotment rule parametrized by \code{asym}. Finally, the resource uptake is weighted by the \code{\link{efficiency}} function, and is spatially integrated to obtain the plant's assimilation index.
+Computation starts with a resource intensity map at a spatial resolution given by \code{pixsize}. Typically the resource distribution is assumed to be uniform (the default). Plants exert competitive pressure depending on size and distance, described by the \code{\link{influence}} function. The resource available at each pixel is allotted to plants according to their influence and to a allotment rule parametrized by \code{asym}. Finally, the resource uptake is weighted by the \code{\link{efficiency}} function, and is spatially integrated to obtain the plant's assimilation index.
 }
 \value{
 %%  ~Describe the value returned
@@ -79,7 +81,7 @@ Computation starts with a resource intensity grid at a spatial resolution of \co
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-Returns the point pattern \code{plants} with the results appended to the \code{marks(plants)} data frame. The additional marks are the assimilation indices in the column \code{aindex}, and optionally the free-growing index in \code{afree}, and/or the x and y centroid coordinates in \code{cx} and \code{cy}. 
+Returns the point pattern \code{plants} with the results appended to the \code{marks(plants)} data frame. The additional marks are the assimilation indices in a column \code{aindex}, and optionally the free-growing index in \code{afree}, and/or the x and y centroid coordinates in \code{cx} and \code{cy}. 
 }
 \references{
 %% ~put references to the literature/web site here ~
@@ -104,7 +106,7 @@ Requires the \pkg{spatstat} package.
 \examples{
 a <- assimilation(finpines, infpar=list(a=1, b=4,
      smark="height"), afree=TRUE)
-head(marks(a))
+summary(a)
 system.time(assimilation.pix(finpines))
 system.time(assimilation(finpines))
 }

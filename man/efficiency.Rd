@@ -17,7 +17,8 @@ Compute efficiency values depending on distance and plant marks, for use in \cod
 \usage{
 flat.eff(dx, dy, marks, par = NULL)
 
-tass.eff(dx, dy, marks, par = list(b = 3.52 * 0.975, c = 6.1, smark = 1))
+tass.eff(dx, dy, marks, par = list(b = 3.52 * 0.975, c = 6.1,
+    smark = 1))
 
 gates.eff(dx, dy, marks, par = list(a = 1, b = 4, smark = 1))
 

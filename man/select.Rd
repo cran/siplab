@@ -13,10 +13,11 @@ Competitor Selection Rules
 Functions returning TRUE for plants that compete with a given subject plant, or FALSE otherwise. The decision can depend on distance and plant marks. For use in \code{\link{pairwise}}.
 }
 \usage{
-size.sel(imarks, jmarks, dists, dranks, par = list(k = 0.2, smark = 1))
+size.sel(imarks, jmarks, dists, dranks, par = list(k = 0.2, smark
+    = 1))
 
-powlinear.sel(imarks, jmarks, dists, dranks, par = list(ki = 0.2, kj = 0,
-  p = 1, r0 = 0, smark=1))
+powlinear.sel(imarks, jmarks, dists, dranks, par = list(ki = 0.2,
+    kj = 0, p = 1, r0 = 0, smark=1))
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -46,12 +47,13 @@ The values of \code{par} must be given in the argument \code{selpar} of \code{pa
 
 Note that their first example (fixed radius) is implemented by giving a value to \code{maxR} in \code{\link{pairwise}}, no \code{select} function is needed. Similarly, their third example (fixed number of nearest neighbors) is obtained by giving a value to \code{maxN}.
 
-\code{powlinear.sel} is a general form that covers all the other examples in Burkhart and \enc{Tomé}{Tome} (2012) with particular values for the parameters (except for the \emph{competition elimination angle}, which depends on relative positions among competitors):
+\code{powlinear.sel} is a general form that covers all the other examples in Burkhart and \enc{Tomé}{Tome} (2012) by choosing specific parameters values  (except for the \emph{competition elimination angle}, which depends on relative positions among competitors and not only on distances).
+It implements a condition \code{distance < ki * sizei^p + kj * sizej^p + r0}, with the following special cases:
 \describe{
 \item{ }{Multiple of crown radius: \code{kj=0, p=1, r0=0, smark="crownwidth"}.}
 \item{ }{Angle count sampling: \code{ki=0, p=1, r0=0, smark="dbh"}.}
 \item{ }{Areas of influence overlap: \code{ki=kj, p=1, r0=0}, if the radius is a linear function of size (\code{p} not 1 for an allometric relationship).}
-\item{ }{Vertical search cone: \code{ki} = \eqn{- c_i / \tan(90 - \beta/2)}, \code{kj} = \eqn{1 / \tan(90 - \beta/2)}, \code{p=1, smark="height"}.}  
+\item{ }{Vertical search cone: If the height of the cone vertex is constant, proportional to tree height, or more generally some linear function \eqn{c_1 h_i + c_2}, then \code{ki} = \eqn{- c_1 / \tan(90 - \beta/2)}, \code{kj} = \eqn{1 / \tan(90 - \beta/2)}, \code{p=1}, \code{r0} = \eqn{- c_2 / \tan(90 - \beta/2)}, \code{smark="height"}.}  
 }
 These and other examples could be coded directly if computational efficiency is important.
 }

@@ -9,7 +9,7 @@ Adjust for Edge Effects
 }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
-Shrink a point pattern, or expand it with replication.
+Shrink a point pattern, or expand it through replication.
 }
 \usage{
 edges(plants, width)
@@ -21,7 +21,7 @@ core(plants, distance)
 \arguments{
   \item{plants}{
 %%     ~~Describe \code{plants} here~~
-A \pkg{spatstat} point pattern object (class \code{ppp}). Normally contains the plants coordinates, and marks with the plant size and possibly other attributes.
+A \pkg{spatstat} point pattern object (class \code{ppp}). It normally contains the plants coordinates, and marks with the plant size and possibly other attributes.
 }
   \item{width}{
 %%     ~~Describe \code{width} here~~

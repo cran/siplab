@@ -19,7 +19,7 @@ function(plants, maxN=NULL, maxR=NULL, select=NULL, selpar=NULL, kernel, kerpar=
         else return(0)
     } # end of function
     # Get indices
-    marks(plants) <- as.data.frame(marks(plants))
+    marks(plants) <- data.frame(marks(plants), cindex=0)
     marks(plants)$cindex <- applynbd(plants, cindex, N=maxN, R=maxR, exclude=TRUE,
             select=select, selpar=selpar, kernel=kernel, kerpar=kerpar)
     return(plants)
