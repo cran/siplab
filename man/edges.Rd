@@ -50,7 +50,7 @@ Typically, in the first case the indices are computed for the full pattern, and 
 
 If \code{width} is negative, the parts of the pattern that are at a distance less than \code{-width} from an edge are discarded.
 
-If \code{width} is positive, the pattern is first expanded by surrounding it with 8 shifted copies (the window must be rectangular). Then, the parts of the pattern that are at a distance less than \code{width} from an edge of the enlarged pattern are discarded.
+If \code{width} is positive, the pattern is first expanded by surrounding it with 8 shifted copies (the window must be rectangular). Then, the parts of the pattern that are at a distance greater than \code{width} from an edge of the original pattern are discarded.
 
 If \code{width} = 0, \code{plants} is returned unchanged.
 

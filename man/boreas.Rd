@@ -37,9 +37,9 @@ Each data set is a \pkg{spatstat} marked point pattern object (class \code{ppp})
 Rich, P.M., and Fournier, R. (1999) BOREAS TE-23 map plot
 data [online]. Oak Ridge National Laboratory Distributed Ac-
 tive Archive Center, Oak Ridge, Tennessee. Available from
-\url{http://www.daac.ornl.gov}.
+\url{http://daac.ornl.gov}.
 
-\enc{García}{Garcia}, O. (2006) Scale and spatial structure effects on tree size distributions: Implications for growth and yield modelling. \emph{Canadian Journal of Forest Research} \bold{36}(11), 2983--2993. \url{http://web.unbc.ca/~garcia/publ/distrib-CJFR.pdf}.
+\enc{García}{Garcia}, O. (2006) Scale and spatial structure effects on tree size distributions: Implications for growth and yield modelling. \emph{Canadian Journal of Forest Research} \bold{36}(11), 2983--2993. \url{https://www.researchgate.net/publication/237866519}.
 }
 \examples{
 data(boreasNP)

@@ -49,9 +49,9 @@ The values of \code{par} must be given in the argument \code{kerpar} of \code{pa
 
 Competition kernels seem to be limited only by the researchers imagination.
 \code{powers.ker} is a general form that includes many examples from the literature. If \eqn{S_i}{Si} is the size of the subject plant, \eqn{S_j}{Sj} the size of the competitor, and \eqn{R} is the distance between them, this kernel is \eqn{(S_j^{p_j} / S_i^{p_i}) / R^{p_r}}{(Sj^pj / Si^pi) / R^pr}. For instance, the popular Hegyi's index corresponds to \code{pi=1, pj=1, pr=1}.
-This and other examples could be coded directly if computational efficiency is important.
+This and other examples could be coded directly if computational efficiency is important, see the  example below.
 
-\code{staebler.ker} is the width of the overlap of zones of influence (ZOI), used by Staebler in 1951. Assumes that the ZOI radius is related to size \eqn{S} by \eqn{k S^p + c}.
+\code{staebler.ker} is the width of the overlap of zones of influence (ZOI), used by Staebler in 1951. Assumes that the ZOI radius = \eqn{k S^p}, where \eqn{S} is size.
 
 \code{spurr.ker} is an example of an index that depends on distance ranks: equations (9.5a), (9.5b) of Burkhart and \enc{Tomé}{Tome} (2012).
 }
@@ -85,8 +85,13 @@ Oscar \enc{García}{Garcia}.
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 \code{\link{pairwise}}
 }
-%\examples{
-%}
+\examples{
+# Originally Hegyi added one foot to the distance:
+hegyi.orig <- function(imarks, jmarks, dists, dranks, par) {
+# Assume coordinates in meters, and that dbh is labeled 'dbh'
+    (jmarks$dbh / imarks$dbh) / (dists + 0.30481)
+}
+}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 %\keyword{ ~kwd1 }

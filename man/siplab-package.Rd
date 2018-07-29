@@ -13,8 +13,8 @@ A platform for experimenting with spatially explicit individual-based plant mode
 \tabular{ll}{
 Package: \tab siplab\cr
 Type: \tab Package\cr
-Version: \tab 1.2\cr
-Date: \tab 2016-03-06\cr
+Version: \tab 1.3\cr
+Date: \tab 2018-07-29\cr
 License: \tab GPL\cr
 }
 %~~ An overview of how to use the package, including the most important functions ~~
@@ -42,10 +42,10 @@ Maintainer: O. Garcia <garcia@dasometrics.net>
 \url{http://forestgrowth.unbc.ca/siplab}
 
 \enc{García}{Garcia}, O. \dQuote{Siplab, a spatial individual-based plant modelling system}. Computational Ecology and Software 4(4), 215-222. 2014.
-(\url{http://www.iaees.org/publications/journals/ces/online-version.asp}).
+(\url{https://www.researchgate.net/publication/267695426}).
 
 \enc{García}{Garcia}, O. \dQuote{A generic approach to spatial individual-based modelling and simulation of plant communities}. Mathematical and Computational Forestry and Nat.-Res. Sci. (MCFNS) 6(1), 36-47. 2014.
-(\url{http://www.mcfns.com/index.php/Journal/article/view/6_36}).
+(\url{https://www.researchgate.net/publication/266618517}).
 }
 %~~ Optionally other standard keywords, one per line, from file KEYWORDS in the R documentation directory ~~
 %\keyword{ package }
@@ -58,12 +58,12 @@ Some \pkg{spatstat} standard data sets may also be of interest: \code{finpines},
 }
 \examples{
 %~~ simple examples of the most important functions ~~
-# Assume data given as a simple data frame
+# Pretend that the data is given as a simple data frame
 data <- as.data.frame(spruces) #  from a spatstat data set
 head(data) # x-y coordinates in a 56x38 m plot, marks are dbh in meters
 # Convert to a point pattern object, dbh in cm
 datap <- ppp(data$x, data$y, c(0, 56), c(0, 38), marks = data$marks * 100)
-# Hegyi (1974) index
+# Hegyi (1974) index (as usual without his original 1-foot distance offset)
 hegyi <- pairwise(datap, maxR = 6, kernel = powers.ker, kerpar = list(pi=1,
     pj=1, pr=1, smark=1))
 head(marks(hegyi))
