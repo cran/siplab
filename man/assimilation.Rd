@@ -26,7 +26,7 @@ assimilation.pix(plants, pixsize = 0.2, resource = 1, influence =
 \arguments{
   \item{plants}{
 %%     ~~Describe \code{plants} here~~
-A \pkg{spatstat} point pattern object (class \code{ppp}), containing the plants coordinates and marks with the plant size and possibly other attributes.
+A \pkg{spatstat} point pattern object (class \code{ppp}). It contains the plants coordinates, and marks with the plant size and possibly other attributes.
 }
   \item{pixsize}{
 %%     ~~Describe \code{pixsize} here~~
@@ -73,7 +73,7 @@ If \code{TRUE}, the centroid of the plant assimilation distribution is also comp
 %%  ~~ If necessary, more details than the description above ~~
 \code{assimilation} and \code{assimilation.pix} are functionally equivalent, but the code in \code{assimilation.pix} is somewhat clearer and slower. It may be useful for documentation purposes, and as a basis for user modification.
 
-Computation starts with a resource intensity map at a spatial resolution given by \code{pixsize}. Typically the resource distribution is assumed to be uniform (the default). Plants exert competitive pressure depending on size and distance, described by the \code{\link{influence}} function. The resource available at each pixel is allotted to plants according to their influence and to a allotment rule parametrized by \code{asym}. Finally, the resource uptake is weighted by the \code{\link{efficiency}} function, and is spatially integrated to obtain the plant's assimilation index.
+Computation starts with a resource intensity map at a spatial resolution given by \code{pixsize}. Typically the resource distribution is assumed to be uniform (the default). Plants exert competitive pressure depending on size and distance, described by the \code{\link{influence}} function. The resource available at each pixel is allotted to plants according to their influence and to an allotment rule parametrized by \code{asym}. Finally, the resource uptake is weighted by the \code{\link{efficiency}} function, and is spatially integrated to obtain the plant's assimilation index.
 }
 \value{
 %%  ~Describe the value returned

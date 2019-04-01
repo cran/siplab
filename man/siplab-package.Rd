@@ -13,8 +13,8 @@ A platform for experimenting with spatially explicit individual-based plant mode
 \tabular{ll}{
 Package: \tab siplab\cr
 Type: \tab Package\cr
-Version: \tab 1.3\cr
-Date: \tab 2018-07-29\cr
+Version: \tab 1.4\cr
+Date: \tab 2019-03-31\cr
 License: \tab GPL\cr
 }
 %~~ An overview of how to use the package, including the most important functions ~~
@@ -39,7 +39,7 @@ Maintainer: O. Garcia <garcia@dasometrics.net>
 }
 \references{
 %~~ Literature or other references for background information ~~
-\url{http://forestgrowth.unbc.ca/siplab}
+\url{http://forestgrowth.unbc.ca/siplab} (unmaintained).
 
 \enc{García}{Garcia}, O. \dQuote{Siplab, a spatial individual-based plant modelling system}. Computational Ecology and Software 4(4), 215-222. 2014.
 (\url{https://www.researchgate.net/publication/267695426}).

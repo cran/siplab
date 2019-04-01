@@ -18,7 +18,7 @@ pairwise(plants, maxN = NULL, maxR = NULL, select = NULL, selpar =
 \arguments{
   \item{plants}{
 %%     ~~Describe \code{plants} here~~
-A \pkg{spatstat} point pattern object (class \code{ppp}), containing the plants coordinates and marks with the plant size and possibly other attributes.
+A \pkg{spatstat} point pattern object (class \code{ppp}). It contains the plants coordinates, and marks with the plant size and possibly other attributes.
 }
   \item{maxN}{
 %%     ~~Describe \code{maxN} here~~

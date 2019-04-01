@@ -1,4 +1,4 @@
-718388b2affb443cfc8a85cb45dfcf53 *DESCRIPTION
+cf37e1ce88e76d825e1023b630af6a4b *DESCRIPTION
 c5560629870e05a4d18ca49e7552bb2e *NAMESPACE
 7d26fde37f12704f8dedeb114bc01610 *R/assimilation.R
 22176dfcf8b82771920a0f76a28121be *R/assimilation.pix.R
@@ -12,7 +12,7 @@ cb7179c2930366789c559982ebb5d528 *R/gnomon.inf.R
 445925f9cd0a4a193fb2c92a27c6131f *R/pairwise.R
 932059f8c5634cdd81baf96ad9ed311f *R/powers.ker.R
 df4f1e4f8cd746b88597fdf89e5b0538 *R/powlinear.sel.R
-665d348e7a3b3cd6d7cea77e5d8b5453 *R/size.sel.R
+50d12f4ac6362bfbc9ab11ab4aeb644e *R/size.sel.R
 ce7400bf4aceee0f296e6ce74c9bb4ad *R/spurr.ker.R
 e8d5409f86c5e295085decf080d92cf7 *R/staebler.ker.R
 91c776aa7deb93cd507acada492e6470 *R/tass.eff.R
@@ -23,13 +23,13 @@ a63af2b63bf8aa0014e6d6e164540eeb *data/boreasNS.rda
 5d021268794995a7efbaf00cd2dbe746 *data/boreasSA.rda
 5e7ea0e11e9bc85a4a81e8c82786e9af *data/boreasSP.rda
 d66f76438e67b4dae494fd7b62dbed66 *inst/CITATION
-bb73ffaec6a23ac584c25a46e1687d0f *inst/NEWS
-6836ad587db85b196f20183606a6c68c *man/assimilation.Rd
-648ce77c1c73c0e3dcf3e3fc365da6d9 *man/boreas.Rd
+d1a1c0f27005813e841d6bd223e7bed9 *inst/NEWS
+4d80b95cb3ffd4483d77e6ba197849ce *man/assimilation.Rd
+deed432eee9647fb515ad6851d1f0258 *man/boreas.Rd
 4ed40dea190634d18560a9cb53c8ced7 *man/edges.Rd
 1198a7db4ec769cff5326d1a4b40ddba *man/efficiency.Rd
 5e5bc60b0f2ac20172509dc4827cc3e4 *man/influence.Rd
-5689f88953d1b01c3e5f2a730143893f *man/kernel.Rd
-f737894e8d11c18c2ca60c28734c1af7 *man/pairwise.Rd
+81f15f9d56ed31c9954acd88eee1b5c0 *man/kernel.Rd
+7413dd941be28e900b362c05dab9e2c7 *man/pairwise.Rd
 92ffed5df0ee3f940bc96a39b8021c25 *man/select.Rd
-e766e6001fc0af6a983afe8cc0bb4ec9 *man/siplab-package.Rd
+992016e1a31a20e654d6ddbf1edee76e *man/siplab-package.Rd
